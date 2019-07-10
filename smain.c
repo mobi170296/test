@@ -11,6 +11,7 @@ int main() {
     FILE *fp, *ffp;
     int tmp;
     long cread;
+    long i = 0;
     
     printf("fn = ");
     gets(fn);
@@ -36,10 +37,10 @@ int main() {
     esize = ceil((double)nsize / nsections);
     n = nsize / esize;
     
-    for (long i = 0; i <= n; i++) {
+    while (!feof(fp)) {
         cread = 0;
         
-        sprintf(ffn, "%s_%ld_%ld", prefix, nsections, i);
+        sprintf(ffn, "%s_%ld_%ld", prefix, nsections, i++);
         
         ffp = fopen(ffn, "w");
         if (ffp == NULL) {
